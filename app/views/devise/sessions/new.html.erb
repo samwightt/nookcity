@@ -1,0 +1,37 @@
+<div class="bg-white rounded-lg shadow-xl border-t border-white max-w-md flex flex-col w-full">
+  <div class="w-full flex flex-col px-4 pt-8 border-b border-gray-300 bg-gray-100 rounded-t-lg">
+    <h2 class="font-bold text-2xl w-full text-center">Log in</h2>
+    <h3 class="leading-tight text-center text-gray-600 font-light mb-5">Check trades, chat with users and more.</h3>
+  </div>
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: 'w-full flex flex-col px-4 bg-white pt-2 rounded-b-lg'}, remote: true) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+
+    <div class="field w-full my-1 flex flex-col">
+      <%= f.label :email, class: 'label' %>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: 'janedoe@example.com', class: 'w-full textbox' %>
+    </div>
+
+    <div class="field w-full my-1 flex flex-col">
+      <%= f.label :password, class: 'label' %>
+      <%= f.password_field :password, autocomplete: "current-password", placeholder: 'Your secure password', class: 'w-full textbox' %>
+      <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+        <%= link_to "Forgot your password?", new_password_path(resource_name), class: 'text-gray-500 text-sm ml-2 mt-1 hover:text-gray-800 transition duration-200' %>
+      <% end %>
+    </div>
+
+    <% if devise_mapping.rememberable? %>
+      <div class="field mt-1 mb-4 flex flex-row ml-1 items-center">
+        <%= f.check_box :remember_me %>
+        <%= f.label :remember_me, class: 'font-light ml-2 text-gray-600 text-md' %>
+      </div>
+    <% end %>
+
+    <div class="actions">
+      <%= f.submit "Log in", class: 'w-full button primary' %>
+    </div>
+  <% end %>
+
+</div>
+<div class="mt-3 max-w-xl">
+  <%= render "devise/shared/links" %>
+</div>

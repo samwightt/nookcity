@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Nookcity</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <nav class="bg-green-500 sticky top">
+      <div class="container mx-auto text-white py-5 flex flex-col space-y-3 md:flex-row md:justify-between md:space-y-0 px-3 md:px-0">
+        <div class="flex-row flex justify-between">
+          <div class="font-semibold tracking-wide text-lg">Nook City</div>
+          <div class="md:hidden flex flex-col space-y-1 py-1 px-1 border-2 border-gray-200 rounded">
+            <div class="w-6 rounded-full h-1 bg-white"></div>
+            <div class="w-6 rounded-full h-1 bg-white"></div>
+            <div class="w-6 rounded-full h-1 bg-white"></div>
+          </div>
+        </div>
+        <ul class="flex flex-col justify-start space-y-2 md:flex-row md:justify-center md:space-y-0 md:space-x-1">
+          <% if user_signed_in? %>
+            <li><%= active_link_to 'Home', root_path, class: 'nav-item' %></li>
+            <li><%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'nav-item' %></li>
+          <% else %>
+            <li><%= link_to "Log in", new_user_session_path, class: 'py-2 px-3 hover:bg-green-400 rounded-md transition duration-200' %></li>
+            <li><%= link_to "Sign Up", new_user_registration_path, class: 'transition duration-200 border-2 border-white text-white py-2 px-4 rounded-md hover:shadow-lg hover:bg-white hover:text-black' %></li>
+          <% end %>
+        </ul>
+      </div>
+    </nav>
+    <%= yield %>
+    <section class="bg-gray-900 text-gray-400">
+      <div class="container mx-auto px-4 md:px-0 py-6 flex flex-wrap space-y-4 md:space-y-0 md:justify-between flex-row">
+        <div class="flex-0 w-full md:w-1/3 flex flex-col">
+          <h2 class="text-lg font-semibold tracking-wide">Nook City</h2>
+          <p>A project by Sam Wight.</p>
+        </div>
+        <div class="w-full md:w-2/3">
+          <h1 class="font-bold text-md">Navigation</h1>
+          <ul>
+            <li>One</li>
+            <li>Two</li>
+            <li>Three</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

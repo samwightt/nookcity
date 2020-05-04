@@ -1,0 +1,68 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+
+.nav-item {
+  @apply py-2 px-3 rounded-md transition duration-200;
+}
+.nav-item:hover {
+  @apply bg-green-400;
+}
+
+.nav-item.active {
+  @apply bg-green-400;
+}
+
+.textbox {
+  @apply py-2 px-3 shadow rounded-md transition duration-200 border border-gray-300 outline-none;
+}
+
+.textbox:hover {
+  @apply border-gray-500;
+}
+
+.textbox:focus {
+  @apply border-gray-800 shadow-md;
+}
+
+.field > .label {
+  @apply uppercase tracking-wide text-gray-600 font-semibold text-xs ml-1;
+}
+
+.hint-text {
+  @apply text-gray-500 text-xs italic;
+}
+
+.button {
+  @apply py-3 mb-4 font-semibold tracking-wide rounded-md transition duration-200 cursor-pointer outline-none;
+}
+
+.button:hover {
+  @apply shadow-lg;
+}
+
+.button:focus {
+  @apply shadow-inner;
+}
+
+.button.primary {
+  @apply bg-blue-500 text-gray-100;
+}
+.button.primary:hover {
+  @apply bg-blue-400 text-white;
+}
+.button.primary:focus {
+  @apply bg-blue-600;
+}
+
+.button.success {
+  @apply bg-green-500 text-gray-100;
+}
+.button.success:hover {
+  @apply bg-green-400 text-white;
+}
+.button.success:focus {
+  @apply bg-green-600;
+}
+
+@import "tailwindcss/utilities";
+
